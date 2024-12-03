@@ -35,9 +35,21 @@ app.use(session({
 //require Controllers 
 const authCtrl = require("./controllers/auth");
 const isSignedIn = require("./middleware/is-signed-in");
+const passUserToView = require('./middleware/pass-user-to-view.js');
+const recipeCtrl = require("./controllers/recipes");
+const ingredientsCtrl = require("./controllers/ingredients");
+
+
+
+
 
 //use controllers 
+app.use(passUserToView);
 app.use("/auth",authCtrl);
+app.use(isSignedIn);
+app.use("/recipes",recipeCtrl);
+app.use("/ingredients",ingredientsCtrl);
+
 
 //Root Route
 app.get("/", async (req,res) => {

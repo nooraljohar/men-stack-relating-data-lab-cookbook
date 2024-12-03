@@ -1,0 +1,9 @@
+<% if(user) {%> 
+    <p>Hi <%= user.username %></p>
+    <a href="/recipes">View all Recipes </a>
+    <a href="/auth/sign-out">Sign out<output></output></a>
+    <% } else {%>
+
+    <a href="/auth/sign-up">Sign up</a>
+    <a href="/auth/sign-in">Sign in</a>
+    <% } %>

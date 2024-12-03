@@ -8,7 +8,7 @@ username: {
 password: {
     type: String,
     required: true
-}
+},
 }, {
     timestamps: true //createdAt and updateAt
 });

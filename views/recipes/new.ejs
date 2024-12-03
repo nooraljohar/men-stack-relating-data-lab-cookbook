@@ -1,0 +1,14 @@
+<!-- views/listings/new.ejs -->
+<body>
+ <%- include('../partials/_navbar.ejs') %>
+
+ <h1>Add a new Recipe</h1>
+
+<form action="/recipess" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" />
+    <label for="instructions">Instructions:</label>
+    <input type="text" name="instructions" id="instructions" />
+    <button type="submit">Add Listing</button>
+  </form>
+</body>

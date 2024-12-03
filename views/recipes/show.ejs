@@ -1,0 +1,9 @@
+<!-- views/listings/show.ejs -->
+<body>
+<h2>Owner</h2>
+<% if (recipe.owner._id.equals(user._id)) { %>
+  <p>You own the recipe!</p>
+<% } else { %>
+  <p>You don't own this, <%= listing.owner.username %> does!</p>
+<% } %>
+</body>
