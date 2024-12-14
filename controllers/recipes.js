@@ -1,4 +1,3 @@
-// controllers/recipes.js
 
 const express = require('express');
 const router = express.Router();
@@ -7,9 +6,7 @@ const User = require('../models/user.js');
 const Recipe = require('../models/recipe.js');
 const Ingredient = require('../models/ingredient.js')
 
-// router logic will go here - will be built later on in the lab
 
-//Root Rout
 router.get('/', async (req, res) => {
   try{
     const recipes = await Recipe.find().populate('owner')
@@ -20,7 +17,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-//add New functionality
 router.get('/new', async(req,res)=>{
   const ingredients = await Ingredient.find()
   res.render('recipes/new.ejs',{ingredients})
@@ -37,15 +33,12 @@ router.post('/', async (req,res)=>{
       name: req.body.name,
       instructions: req.body.instructions || '',
       owner: req.body.owner,
-      ingredients: ingredients // Use the ingredient IDs directly
+      ingredients: ingredients 
   });
 
 
 
-    // ingredients = ingredients.push(ingredients.value)
-
-
-    // await Recipe.create(req.body)
+   
     res.redirect('/recipes')
   }catch(error){
     console.log(error)
@@ -53,14 +46,12 @@ router.post('/', async (req,res)=>{
   }
 })
 
-// show functionality "display = get"
 router.get('/:recipeId', async(req,res)=>{
   const recipe = await Recipe.findById(req.params.recipeId).populate('ingredients')
 
   res.render('recipes/show.ejs',{recipe})
 })
 
-//delete functionality
 router.delete('/:recipeId', async (req, res) => {
   try {
     const recipe = await Recipe.findById(req.params.recipeId);
@@ -76,7 +67,7 @@ router.delete('/:recipeId', async (req, res) => {
   }
 });
 
-//edit functionality
+
 router.get('/:recipeId/edit', async(req,res)=>{
   const recipe = await Recipe.findById(req.params.recipeId)
   const ingredients = await Ingredient.find()
@@ -101,5 +92,4 @@ router.put('/:recipeId', async(req,res)=>{
 
 
 
-//Export
 module.exports = router;

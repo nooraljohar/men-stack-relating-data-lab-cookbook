@@ -1,4 +1,3 @@
-// controllers/recipes.js
 
 const express = require('express');
 const router = express.Router();
@@ -6,15 +5,13 @@ const router = express.Router();
 const User = require('../models/user.js');
 const Ingredient = require('../models/ingredient.js');
 
-// router logic will go here - will be built later on in the lab
 
-//root
+
 router.get('/', async(req,res)=>{
   const ingredients = await Ingredient.find()
   res.render('ingredients/index.ejs',{ingredients})
 })
 
-//add new
 router.get('/new',async(req,res)=>{
   res.render('ingredients/new.ejs')
 })

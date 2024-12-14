@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
   }
 
 },{
-  timestamps: true // this add two field createAt: when the item was created and updatedAt: when it was last update. it is useful to the log
+  timestamps: true  
 })
 
 const User = mongoose.model("User", userSchema)

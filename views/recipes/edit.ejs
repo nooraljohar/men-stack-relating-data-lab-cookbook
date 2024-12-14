@@ -1,13 +1,10 @@
-<head>
-  <link rel="stylesheet" href="/stylesheets/style.css" />
-</head>
+
 <body>
   <%- include('../partials/_navbar.ejs') %>
   <a href="/ingredients/new">Add New Ingredient</a>
 
   <h1>Edit <%= recipe.name %></h1>
 
-  <!-- views/listings/edit.ejs -->
 <div class="edit-body">
   <form action="/recipes/<%= recipe._id %>?_method=PUT" method="post">
     <label for="name">Name:</label>
