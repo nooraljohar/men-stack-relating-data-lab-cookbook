@@ -1,3 +1,6 @@
+<head>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,6 +9,19 @@
     <title>My Recipes</title>
   </head>
   <body>
-    <h1>Welcome to My Recipes</h1>
+    <%- include('../partials/_navbar.ejs') %>
+    <div class="all-apps-body">
+      <h1>Here's All the Recipes</h1>
+      <div class="all-apps-header">
+    
+        <a class="add-app-link" href="/recipes/new">Add New Recipe</a>
+        <a class="add-app-link" href="/ingredients/new">Add Ingredients</a>
+      </div>
+      <ul>
+        <% recipes.forEach(recipe => {%>
+        <a href="/recipes/<%= recipe._id %>"><li>A <%= recipe.name %> recipe || Created by <%= recipe.owner.username %></li></a>
+        <%}); %>
+      </ul>
+    </div>
   </body>
 </html>

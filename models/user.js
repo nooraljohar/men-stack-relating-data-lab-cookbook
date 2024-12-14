@@ -1,17 +1,19 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
 const userSchema = new mongoose.Schema({
-username: {
+  username: {
     type: String,
     required: true
-},
-password: {
+  },
+  password:{
     type: String,
     required: true
-},
-}, {
-    timestamps: true //createdAt and updateAt
-});
+  }
 
-const User = mongoose.model("User",userSchema);
-module.exports = User;
+},{
+  timestamps: true // this add two field createAt: when the item was created and updatedAt: when it was last update. it is useful to the log
+})
+
+const User = mongoose.model("User", userSchema)
+
+module.exports = User

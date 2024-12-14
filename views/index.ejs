@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  <title>Home Page</title>
 </head>
-<body>
-
-    <% if(user) {%> 
-    <p>Hi <%= user.username %></p>
-    <a href="/auth/sign-out">Sign out<output></output></a>
-    <% } else {%>
-
-    <a href="/auth/sign-up">Sign up</a>
-    <a href="/auth/sign-in">Sign in</a>
-    <% } %>
-    <h1>Welcome to CookBook!</h1>
+<body class="index-body">
+  
+  <%- include('./partials/_navbar.ejs') %>
+  <div class="index-container">
+    <div class="text-container">
+      <h1 class="main-header">Welcome to Cookbook!</h1>
+    </div>
+    <div class="auth-links">
+      <a class="signup-link" href="/auth/sign-up">Sign Up</a>
+      <a class="signin-link" href="/auth/sign-in">Sign In</a>
+    </div>  
+  </div>
 </body>
 </html>

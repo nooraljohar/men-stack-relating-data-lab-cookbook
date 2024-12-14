@@ -1,9 +1,52 @@
-<!-- views/listings/show.ejs -->
+<head>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
 <body>
-<h2>Owner</h2>
-<% if (recipe.owner._id.equals(user._id)) { %>
-  <p>You own the recipe!</p>
-<% } else { %>
-  <p>You don't own this, <%= listing.owner.username %> does!</p>
-<% } %>
+  <%- include('../partials/_navbar.ejs') %> 
+  
+  <h1>A <%= recipe.name%> Recipe</h1>
+ 
+  <a href="/recipes">Back to Recipes</a>
+  <h2>Ingredients</h2>
+  <ol>
+  <%  
+    const ingredients = recipe.ingredients 
+    
+    ingredients.forEach(ingredient =>{%>
+      <li><%= ingredient.name %></li>
+    <%})
+   
+  
+  
+  %>
+  </ol>
+  
+  
+  
+  
+  <h2>Instructions</h2>
+
+  <%
+  const instructions = recipe.instructions
+  const instructionsArray = instructions.split("\n")
+  instructionsArray.forEach(element => {%>
+    <p><%= element %></p>
+  <%});
+
+  
+  %>
+  <h2>Owner</h2>
+  <% if (recipe.owner._id.equals(user._id)) { %>
+    <p>You own this Recipe!</p>
+
+    <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="post" style="background-color:#f6e7e7; padding: 0;">
+      <button type="submit">Delete This Recipe</button>
+    </form>
+    
+    <a href="/recipes/<%= recipe._id %>/edit">Edit this Recipe</a>
+
+  <% } else { %>
+    <p>This Recipe was created by <%= recipe.owner.username %></p>
+  <% } %>
+
 </body>

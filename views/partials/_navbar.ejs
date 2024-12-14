@@ -1,9 +1,24 @@
-<% if(user) {%> 
-    <p>Hi <%= user.username %></p>
-    <a href="/recipes">View all Recipes </a>
-    <a href="/auth/sign-out">Sign out<output></output></a>
-    <% } else {%>
+<link rel="stylesheet" href="/stylesheets/partials.css" />
 
-    <a href="/auth/sign-up">Sign up</a>
-    <a href="/auth/sign-in">Sign in</a>
-    <% } %>
+<!-- views/partials/_navbar.ejs -->
+
+<nav>
+  <% if(user) { %>
+    <div class="navbar">
+      <h1 id="nav-header">Cookbook</h1>
+      <div class="nav-links">
+        <a class="authlink" href="/recipes/">Recipes</a>
+      <a class="authlink" href="/ingredients/">Ingredients</a>
+        <a class="authlink" href="/auth/sign-out">Sign Out</a>
+      </div>
+    </div>
+  <% } else { %>
+    <div class="navbar">
+      <h1 id="nav-header">Cookbook</h1>
+      <div class="nav-links">
+        <a class="authlink" href="/auth/sign-in">Sign In</a>
+        <a class="authlink" href="/auth/sign-up">Sign Up</a>
+      </div>
+    </div>
+  <% } %>
+</nav>

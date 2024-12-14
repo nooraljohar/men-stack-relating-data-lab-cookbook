@@ -1,0 +1,16 @@
+<head>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body>
+  <%- include('../partials/_navbar.ejs') %>
+  <a href="/ingredients">Back to Ingredients</a>
+  <h1>Add New Ingredient</h1>
+  <div class="new-body">
+    <form action="/ingredients" method="post">
+      <label for="name">Ingredient:</label>
+      <input type="text" name="name" id="name" /><br>
+      <button type="submit">Add Ingredient</button>
+    </form>
+  <div>
+
+</body>

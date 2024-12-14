@@ -1,14 +1,31 @@
-<!-- views/listings/new.ejs -->
+<head>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
 <body>
- <%- include('../partials/_navbar.ejs') %>
-
- <h1>Add a new Recipe</h1>
-
-<form action="/recipess" method="POST">
+  <%- include('../partials/_navbar.ejs') %>
+  <a href="/ingredients/new">Add New Ingredient</a>
+  <a href="/recipes">Back to Recipes</a>
+  <h1>Create a New Recipe!</h1>
+  <div class="new-body">
+  <form action="/recipes" method="post">
     <label for="name">Name:</label>
-    <input type="text" name="name" id="name" />
-    <label for="instructions">Instructions:</label>
-    <input type="text" name="instructions" id="instructions" />
-    <button type="submit">Add Listing</button>
+  <input type="text" name="name" id="name" /><br>
+
+  <label for="ingredient">Ingredients</label><br>
+  <% ingredients.forEach(ingredient => {%>
+    <label>
+    <input type="checkbox" name="ingredients" value="<%= ingredient._id %>">
+      <%= ingredient.name %>
+    </label><br>
+  <%});
+  %>
+
+
+  <label for="instructions">Instructions:</label>
+  <textarea name="instructions" id="instructions"></textarea><br>
+
+  <button type="submit">Add Recipe</button>
+
   </form>
+</div> 
 </body>
