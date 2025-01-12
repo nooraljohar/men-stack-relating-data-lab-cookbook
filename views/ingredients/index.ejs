@@ -1,11 +1,11 @@
 
 <body>
   <%- include('../partials/_navbar.ejs') %>
+  <div class="all-apps-header">
+    <a class="add-app-link" href="/ingredients/new">Add New Ingredient</a>
+  </div>  
   <div class="all-apps-body">
     <h1>Here's All the Ingredients</h1>
-    <div class="all-apps-header">
-      <a class="add-app-link" href="/ingredients/new">Add New Ingredient</a>
-    </div>  
     
     <ul>
       <% ingredients.forEach(ingredient => {%>

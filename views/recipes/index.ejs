@@ -8,13 +8,13 @@
   </head>
   <body>
     <%- include('../partials/_navbar.ejs') %>
-    <div class="all-apps-body">
-      <h1>Here's All the Recipes</h1>
-      <div class="all-apps-header">
+    <div class="all-apps-header">
     
         <a class="add-app-link" href="/recipes/new">Add New Recipe</a>
-        <a class="add-app-link" href="/ingredients/new">Add Ingredients</a>
       </div>
+    <div class="all-apps-body">
+      <h1>Here's All the Recipes</h1>
+      
       <ul>
         <% recipes.forEach(recipe => {%>
         <a href="/recipes/<%= recipe._id %>"><li>A <%= recipe.name %> recipe || Created by <%= recipe.owner.username %></li></a>
